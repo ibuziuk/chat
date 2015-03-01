@@ -1,0 +1,130 @@
+ 
+   body {
+ background-color: rgba(254,251,100,0.4);
+ overflow: auto;
+}
+  #blockHello{
+    position:absolute;
+    left: 28%;
+    top: 1%;
+	border: solid 3px #7E2199; 
+	background: rgba(174,221,148,0.6);
+	width: 60%;
+	height: 15%;
+	border-radius: 15px; 
+  }
+   #HelloHead { 
+   position:absolute;
+    color: #2E1572; 
+    font-size: 24pt;
+    font-family: Georgia, Times, serif; 
+    font-weight: normal;
+    left: 30%;
+    top: 5%
+   }
+   #blockLogin{
+   background: rgba(174,221,148,0.6);
+   position:absolute;
+    left: 1%;
+    top: 1%;
+	border: solid 2px #7E2199;
+	height: 15%;
+	width: 25%;
+	border-radius: 0 10px;
+   }
+   #blockUsers{
+      background: rgba(174,221,148,0.6);
+    position:absolute;
+    left: 1%;
+    top: 18%;
+	border: solid 2px #7E2199;
+	height: 70%;
+	width: 25%;
+	 overflow: scroll;
+   }
+    #blockChatting{
+	background: rgba(194,56,235,0.5);
+    position:absolute;
+    left: 28%;
+    top: 18%;
+	border: solid 2px #7E2199;
+	height: 70%;
+	width: 70%;
+	 overflow: scroll;
+   }
+   #textHi{
+    color: #2E1572; 
+    font-size: 14pt;
+    font-family: Georgia, Times, serif; 
+	position:absolute;
+    left: 20%;
+    top: -10%;
+   }
+   #buttonLogin{
+   position:absolute;
+    left: 20%;
+    top: 70%;
+   }
+   #textLogin
+   {
+    position:absolute;
+    left: 20%;
+    top: 40%;
+   }
+   #changeLogin
+   {
+   color: #7E2199;
+     position:absolute;
+    left: 50%;
+    top: 55%;
+   }
+   #chatText{
+    position:absolute;
+	top: 90%;
+	left: 28%;
+   }
+   #ButtonSend{
+   position:absolute;
+   left: 92%;
+	top: 90%;
+   }
+   
+   #ButtonChoose{
+    position:absolute;
+    left: 28%;
+    top: 95%;
+   }
+   #ButtonChange{
+    position:absolute;
+    left: 50%;
+    top: 95%;
+   }
+   #ButtonDelete{
+    position:absolute;
+    left:60%;
+    top: 95%;
+   }
+   #TextForUser{
+    position:absolute;
+    left: 1%;
+    top: 90%;
+	background:  rgba(254,251,100,0.2);
+	border: solid 2px #7E2199;
+	height: 6%;
+	width: 25%;
+	border-radius: 10px 0;
+	color: #2E1572;
+		font-size: 14pt;
+   }
+   #textChoose{
+   position:absolute;
+    left: 5%;
+    top: -30%;
+   }
+   #indicator{
+   position:absolute;
+    left: 90%;
+    top: 1%;
+	height:16%;
+	width:8%;
+   }

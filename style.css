@@ -3,28 +3,23 @@
  background-color: rgba(254,251,100,0.4);
  overflow: auto;
 }
-  #blockHello{
-    position:absolute;
+  .BlockHello{
+   position:absolute;
     left: 28%;
     top: 1%;
-	border: solid 3px #7E2199; 
-	background: rgba(174,221,148,0.6);
+ 	border: solid 3px #7E2199; 
+ 	background: rgba(174,221,148,0.6);
 	width: 60%;
 	height: 15%;
 	border-radius: 15px; 
-  }
-   #HelloHead { 
-   position:absolute;
-    color: #2E1572; 
-    font-size: 24pt;
+	color: #2E1572; 
+    font-size: 14pt;
     font-family: Georgia, Times, serif; 
     font-weight: normal;
-    left: 30%;
-    top: 5%
-   }
-   #blockLogin{
-   background: rgba(174,221,148,0.6);
-   position:absolute;
+  }
+   .BlockLogin{
+    background: rgba(174,221,148,0.6);
+    position:absolute;
     left: 1%;
     top: 1%;
 	border: solid 2px #7E2199;
@@ -32,17 +27,47 @@
 	width: 25%;
 	border-radius: 0 10px;
    }
-   #blockUsers{
-      background: rgba(174,221,148,0.6);
+   
+   .ButtonLogin{
+   position:absolute;
+    left: 20%;
+    top: 70%;
+   }
+   
+    #TextHi{
+    color: #2E1572; 
+    font-size: 14pt;
+    font-family: Georgia, Times, serif; 
+	position:absolute;
+    left: 20%;
+    top: -10%;
+   }
+   
+   #TextLogin
+   {
+    position:absolute;
+    left: 20%;
+    top: 40%;
+   }
+   .ChangeLogin
+   {
+    color: #7E2199;
+    position:absolute;
+    left: 50%;
+    top: 70%;
+   }
+   
+   .BlockUsers{
+    background: rgba(174,221,148,0.6);
     position:absolute;
     left: 1%;
     top: 18%;
 	border: solid 2px #7E2199;
 	height: 70%;
 	width: 25%;
-	 overflow: scroll;
+	overflow: scroll;
    }
-    #blockChatting{
+    .BlockChatting{
 	background: rgba(194,56,235,0.5);
     position:absolute;
     left: 28%;
@@ -52,59 +77,35 @@
 	width: 70%;
 	 overflow: scroll;
    }
-   #textHi{
-    color: #2E1572; 
-    font-size: 14pt;
-    font-family: Georgia, Times, serif; 
-	position:absolute;
-    left: 20%;
-    top: -10%;
-   }
-   #buttonLogin{
-   position:absolute;
-    left: 20%;
-    top: 70%;
-   }
-   #textLogin
-   {
-    position:absolute;
-    left: 20%;
-    top: 40%;
-   }
-   #changeLogin
-   {
-   color: #7E2199;
-     position:absolute;
-    left: 50%;
-    top: 55%;
-   }
-   #chatText{
+
+
+   #ChatText{
     position:absolute;
 	top: 90%;
 	left: 28%;
    }
-   #ButtonSend{
+   .ButtonSend{
    position:absolute;
    left: 92%;
 	top: 90%;
    }
    
-   #ButtonChoose{
+   .ButtonChoose{
     position:absolute;
     left: 28%;
     top: 95%;
    }
-   #ButtonChange{
+   .ButtonChange{
     position:absolute;
     left: 50%;
     top: 95%;
    }
-   #ButtonDelete{
+   .ButtonDelete{
     position:absolute;
     left:60%;
     top: 95%;
    }
-   #TextForUser{
+   .TextForUser{
     position:absolute;
     left: 1%;
     top: 90%;
@@ -114,17 +115,24 @@
 	width: 25%;
 	border-radius: 10px 0;
 	color: #2E1572;
-		font-size: 14pt;
+	font-size: 14pt;
    }
-   #textChoose{
+   #TextChoose{
    position:absolute;
     left: 5%;
     top: -30%;
    }
-   #indicator{
+   #Indicator{
    position:absolute;
     left: 90%;
     top: 1%;
 	height:16%;
 	width:8%;
+   }
+   .Message{
+    border: solid 1px #7E2199;
+   	background: rgba(194,56,235,0.5);
+   }
+   .Select{
+    background:  rgb(194,50,235);
    }

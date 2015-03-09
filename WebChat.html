@@ -1,43 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title> Chat </title>
  <meta charset="utf-8">
  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
-<body>
+<body onload="run()" >
 
-<div id="blockHello">
-<H1 id="HelloHead">Добро пожаловать!</H1>
+<div class="BlockHello">
+<h1 id="Greetings" align="center">Добро пожаловать!</h1>
 </div>
 
-<div id="blockLogin">
-<p id="textHi" >
+<div class="BlockLogin">
+<p id="TextHi" >
 Введите ваш логин
 </p>
-<form>
-  <button id="buttonLogin" >Войти</button>
-</form>
-<input id="textLogin" type="text" size="15">
-<p id="changeLogin"> Изменить логин</p>
+  <button class="ButtonLogin" >Войти</button>
+<input id="TextLogin" type="text" size="15">
+<button class="ChangeLogin"> Изменить логин</button>
 </div>
 
-<div id="blockUsers">
+<div class="BlockUsers">
 </div>
 
-<div id="blockChatting">
+<div class="BlockChatting">
 </div >
- <input id="chatText" type="text" size="115">
-  <button id="ButtonSend">Отправить</button>
+
+<div class="BlockMessageEnter">
+         <input id="ChatText" type="text" size="115">
+       <button class="ButtonSend">Отправить</button>
+  </div>
+
+ <div class="BlockMessageWork">
+  <button class="ButtonChoose">Выход</button>
+  <button class="ButtonChange">Редактировать</button>
+  <button class="ButtonDelete">Удалить</button>
+  </div>
  
- <form>
-  <button id="ButtonChoose">Выход</button>
- <button id="ButtonChange">Редактировать</button>
- <button id="ButtonDelete">Удалить</button>
-</form> 
-<div id="TextForUser">
-<p id="textChoose" >Выберете собеседника и общайтесь!</p>
+<div class="TextForUser">
+<p id="TextChoose" >Выберете собеседника и общайтесь!</p>
 </div>
-<img id="indicator" src="http://savepic.su/5187513.png" border="0" />
+<img id="Indicator" src="http://savepic.su/5187513.png" border="0" />
 </body>
 </html>

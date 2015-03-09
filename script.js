@@ -63,7 +63,7 @@ function addMessage()
 	chat.appendChild(message);
 	document.getElementById('ChatText').value='';
 	}
-	else alert('Для того, чтобы отправлять сообщения, вам нужно зарегестрироваться');
+	else alert('Для того чтобы отправлять сообщения, вам нужно зарегестрироваться');
 	}
 }
 

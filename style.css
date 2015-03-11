@@ -90,21 +90,7 @@
 	top: 90%;
    }
    
-   .ButtonChoose{
-    position:absolute;
-    left: 28%;
-    top: 95%;
-   }
-   .ButtonChange{
-    position:absolute;
-    left: 50%;
-    top: 95%;
-   }
-   .ButtonDelete{
-    position:absolute;
-    left:60%;
-    top: 95%;
-   }
+
    .TextForUser{
     position:absolute;
     left: 1%;
@@ -136,3 +122,12 @@
    .Select{
     background:  rgb(194,50,235);
    }
+   .Delete{
+    background-color: RED;
+    float: right;
+   }
+   .Change{
+    background-color: ORANGE;
+    float: right;
+   }
+   

@@ -4,6 +4,24 @@ function getMessage()
 	return message;
 }
 
+var uniqueId = function() {
+	var date = Date.now();
+	var random = Math.random() * Math.random();
+
+	return Math.floor(date * random).toString();
+};
+
+var theMessage = function(text, name) {
+	return {
+		description:text,
+		username: name,
+		id: uniqueId()
+	};
+};
+
+var msgList = [];
+var currentUser;
+
 function run(){
 	var appContainer = document.getElementsByClassName('BlockMessageEnter')[0];
     appContainer.addEventListener('click', delegateEvent);
@@ -14,13 +32,33 @@ function run(){
 	var index = document.getElementById('Indicator');
 	index.addEventListener('mouseover', delegateEvent);
 	index.addEventListener('mouseout', delegateEvent);
-	
+	var allTasks = restore();
+	if(allTasks!=null)
+	{
+	createAllTasks(allTasks);
+	}
+	var user = restoreCurrentUser();
+	if(user!=null)
+	{
+		currentUser = user;
+		addUser(user);
+	}
 }
+
+function createAllTasks(allTasks) {
+	for(var i = 0; i < allTasks.length; i++)
+	{
+		addRestoringInformation(allTasks[i]);
+		msgList.push(allTasks[i]);
+	}
+}
+
+
 function delegateEvent(evtObj) {
 	if (evtObj.type === 'click' && evtObj.target.classList.contains('ButtonSend') && document.getElementsByClassName('Select').length == 0)
 		addMessage();
 	if (evtObj.type === 'click' && evtObj.target.classList.contains('ButtonLogin'))
-		addUser();
+		addUser(getUserName());
 	if (evtObj.type === 'click' && evtObj.target.classList.contains('ChangeLogin'))
 		changeUserName();
 	if (evtObj.type === 'click' && evtObj.target.classList.contains('Delete'))
@@ -44,43 +82,36 @@ function delegateEvent(evtObj) {
 		changeIndicatorOff();
 }
 
-function createMessage(text){
+function createMessage(text, id){
 	var divItem = document.createElement('div');
-	var button1 = document.createElement('button');
-	var button2 = document.createElement('button');
-	    button1.className = "Delete";
-		button2.className = "Change";
-		divItem.className = 'Message';
-		divItem.appendChild(button1);
-		divItem.appendChild(button2);
-	    divItem.appendChild(document.createTextNode(text));
- 
+	divItem.innerHTML = '<div data-id=' + id+'><button class="Delete"></button><button class="Change"></button>'+text+'</div>';
 	return divItem;
 }
 
 function addMessage()
-{
-	var users = document.getElementsByClassName('User');
-	if(getMessage().length!=0)
+{   
+	var name = currentUser;
+
+	if(getMessage().length!=0 )
 	{
-	if (users.length != 0)
-	{
+	
 	var chat = document.getElementsByClassName('BlockChatting')[0];
-	var message = createMessage(getMessage());
+	var newMsg = theMessage(name+": "+getMessage(), name);
+	 msgList.push(newMsg);
+	var message = createMessage(name+": "+getMessage(), newMsg.id);
 	chat.appendChild(message);
 	document.getElementById('ChatText').value='';
-	}
-	else alert('Для того чтобы отправлять сообщения, вам нужно зарегестрироваться');
+	store(msgList);
 	}
 }
 
 function createUser(text)
 {
 	var divItem = document.createElement('div');
-	var check = document.createElement('input');
-	check.setAttributes
+	currentUser = text;
 	divItem.className = 'User';
 	divItem.appendChild(document.createTextNode(text));
+	storeCurrentUser(currentUser);
 	return divItem;
 }
 
@@ -91,10 +122,10 @@ function getUserName()
 	return userName;
 }
 
-function addUser()
+function addUser(text)
 {
 	var users = document.getElementsByClassName('BlockUsers')[0];
-	var user = createUser(getUserName());
+	var user = createUser(text);
 	users.appendChild(user);
 }
 
@@ -103,6 +134,8 @@ function changeUserName()
 	var divItem = document.getElementsByClassName('User')[0];
 	var name = prompt('Введите новый логин:', divItem.firstChild.nodeValue);
 	divItem.firstChild.nodeValue = name;
+	currentUser = name;
+	storeCurrentUser(currentUser);
 }
 
 function setMarker(label)
@@ -114,14 +147,21 @@ function setMarker(label)
 function deleteMessage()
 {
 	var messages = document.getElementsByClassName('Select');
+	var id = messages[0].getAttribute('data-id');
+	for(var i = 0; i < msgList.length; i++){
+		if(msgList[i].id != id)
+			continue;
+	msgList.splice(i,1);
 	messages[0].remove();
+	}
+	store(msgList);
 }
 
 function editMessage()
 {
 	var messages = document.getElementsByClassName('Select');
 	var str = messages[0].innerHTML;
-	var pos = str. lastIndexOf(">")+1;
+	var pos = str.indexOf(":")+1;
 	var text = str.substring(pos);
     document.getElementById('ChatText').value = text;
    
@@ -130,10 +170,16 @@ function editMessage()
 function nextEditMessage()
 {
 	var messages = document.getElementsByClassName('Select');
-	if (getMessage().length!=0)
-	messages[0].innerHTML = '<button class="Delete"></button><button class="Change"></button>'+getMessage();
+    var id = messages[0].getAttribute('data-id');
+	for(var i = 0; i < msgList.length; i++){
+		if(msgList[i].id != id)
+			continue;
+		msgList[i].description = msgList[i].username+":"+getMessage();
+		messages[0].innerHTML = '<div data-id=' + msgList[i].id+'><button class="Delete"></button><button class="Change"></button>'+msgList[i].description+'</div>';
+	}
 	document.getElementById('ChatText').value='';
 	messages[0].classList.remove('Select');
+	store(msgList);
 }
 
 function changeIndicatorOn()
@@ -148,3 +194,49 @@ function changeIndicatorOff()
 	index.setAttribute('src','http://savepic.su/5187513.png');
 }
 
+function store(listToSave) {
+
+	if(typeof(Storage) == "undefined") {
+		alert('localStorage is not accessible');
+		return;
+	}
+
+	localStorage.setItem("MessagesList", JSON.stringify(listToSave));
+}
+
+function restore() {
+	if(typeof(Storage) == "undefined") {
+		alert('localStorage is not accessible');
+		return;
+	}
+
+	var item = localStorage.getItem("MessagesList");
+
+	return item && JSON.parse(item);
+}
+
+function storeCurrentUser(user){
+	if(typeof(Storage) == "undefined") {
+		alert('localStorage is not accessible');
+		return;
+	}
+
+	localStorage.setItem("UserName", JSON.stringify(user));
+}
+
+function restoreCurrentUser() {
+	if(typeof(Storage) == "undefined") {
+		alert('localStorage is not accessible');
+		return;
+	}
+
+	var item = localStorage.getItem("UserName");
+
+	return item && JSON.parse(item);
+	}
+
+function addRestoringInformation(msg)
+{
+	var chat = document.getElementsByClassName('BlockChatting')[0];
+	chat.appendChild(createMessage(msg.description, msg.id));
+}

@@ -1,0 +1,132 @@
+ 
+   body {
+ background-color: rgba(254,251,100,0.4);
+ overflow: auto;
+}
+  .BlockHello{
+   position:absolute;
+    left: 28%;
+    top: 1%;
+ 	border: solid 3px #7E2199; 
+ 	background: rgba(174,221,148,0.6);
+	width: 60%;
+	height: 15%;
+	border-radius: 15px; 
+	color: #2E1572; 
+    font-size: 14pt;
+    font-family: Georgia, Times, serif; 
+    font-weight: normal;
+  }
+   .BlockLogin{
+    background: rgba(174,221,148,0.6);
+    position:absolute;
+    left: 1%;
+    top: 1%;
+	border: solid 2px #7E2199;
+	height: 15%;
+	width: 25%;
+	border-radius: 0 10px;
+   }
+   
+   .ButtonLogin{
+   position:absolute;
+    left: 20%;
+    top: 70%;
+   }
+   
+    #TextHi{
+    color: #2E1572; 
+    font-size: 14pt;
+    font-family: Georgia, Times, serif; 
+	position:absolute;
+    left: 20%;
+    top: -10%;
+   }
+   
+   #TextLogin
+   {
+    position:absolute;
+    left: 20%;
+    top: 40%;
+   }
+   .ChangeLogin
+   {
+    color: #7E2199;
+    position:absolute;
+    left: 50%;
+    top: 70%;
+   }
+   
+   .BlockUsers{
+    background: rgba(174,221,148,0.6);
+    position:absolute;
+    left: 1%;
+    top: 18%;
+	border: solid 2px #7E2199;
+	height: 70%;
+	width: 25%;
+   }
+    .BlockChatting{
+	background: rgba(194,56,235,0.5);
+    position:absolute;
+    left: 28%;
+    top: 18%;
+	border: solid 2px #7E2199;
+	height: 70%;
+	width: 70%;
+	 overflow: scroll;
+   }
+
+
+   #ChatText{
+    position:absolute;
+	top: 90%;
+	left: 28%;
+   }
+   .ButtonSend{
+   position:absolute;
+   left: 92%;
+	top: 90%;
+   }
+   
+
+   .TextForUser{
+    position:absolute;
+    left: 1%;
+    top: 90%;
+	background:  rgba(254,251,100,0.2);
+	border: solid 2px #7E2199;
+	height: 6%;
+	width: 25%;
+	border-radius: 10px 0;
+	color: #2E1572;
+	font-size: 14pt;
+   }
+   #TextChoose{
+   position:absolute;
+    left: 5%;
+    top: -30%;
+   }
+   #Indicator{
+   position:absolute;
+    left: 90%;
+    top: 1%;
+	height:16%;
+	width:8%;
+   }
+   .Message{
+    border: solid 1px #7E2199;
+   	background: rgba(194,56,235,0.5);
+   }
+   .Select{
+    background:  rgb(194,50,235);
+   }
+   .Delete{
+    background-color: RED;
+    float: right;
+   }
+   .Change{
+    background-color: ORANGE;
+    float: right;
+   }
+   
